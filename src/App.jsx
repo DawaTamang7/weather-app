@@ -1,6 +1,7 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getWeatherData } from './service/weather.service';
+  
 
 function App(){
   const [cityName, setCityName] = useState();
@@ -13,13 +14,13 @@ function App(){
     enabled: enabled ,
   });
 
+
   useEffect(() => {
     if (isFetched) {
       setEnabled(false);
     }
-  }, [Fetched]);
+  }, [isFetched]);
 
-  }
   return(
    <div className="flex justify-center items-center h-[100vh] flex-col gap-5 bg-red-500">
     <div className="bg-white p-10">
@@ -71,6 +72,8 @@ function App(){
 }
 
 export default App;
+
+
 
 
 
